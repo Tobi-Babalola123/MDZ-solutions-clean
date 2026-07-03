@@ -991,7 +991,7 @@ export default function App() {
       </section>
 
       {/* ─── CERTIFICATIONS ──────────────────────────────────── */}
-      <section className="py-24 bg-gradient-to-b from-[#18202d] via-[#1c2332] to-[#161d28]">
+      <section className="py-24 bg-[#202735]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-[#c9971c] text-xs font-semibold tracking-[0.18em] uppercase">
@@ -1022,7 +1022,7 @@ export default function App() {
                   className="
               w-40 h-40
               rounded-full
-              bg-white
+              bg-[#202735]
               shadow-[0_20px_45px_rgba(0,0,0,0.18)]
               border border-white/20
               flex items-center justify-center
