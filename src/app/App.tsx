@@ -1,5 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { BadgeCheck } from "lucide-react";
+import nemsaLogo from "@/assets/certificates/nemsa.png";
+import sonLogo from "@/assets/certificates/cbn.png";
+import reaLogo from "@/assets/certificates/nerc.png";
+import isoLogo from "@/assets/certificates/iso.png";
 
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import {
@@ -295,13 +299,27 @@ const FAQS = [
   },
 ];
 
-const CERTS = [
-  "NEMSA Certified",
-  "NAFDAC Approved",
-  "SON Certified",
-  "REA Partner",
-  "World Bank Approved",
-  "ISO 9001:2015",
+const CERTIFICATES = [
+  {
+    name: "NEMSA",
+    subtitle: "Licensed Installer",
+    image: nemsaLogo,
+  },
+  {
+    name: "SON",
+    subtitle: "Standards Organization",
+    image: sonLogo,
+  },
+  {
+    name: "REA",
+    subtitle: "Renewable Energy Partner",
+    image: reaLogo,
+  },
+  {
+    name: "ISO 9001",
+    subtitle: "Quality Management",
+    image: isoLogo,
+  },
 ];
 
 // ── Component ─────────────────────────────────────────────────
@@ -973,31 +991,62 @@ export default function App() {
       </section>
 
       {/* ─── CERTIFICATIONS ──────────────────────────────────── */}
-      <section className="py-16 bg-[#1c2332]">
+      <section className="py-24 bg-gradient-to-b from-[#18202d] via-[#1c2332] to-[#161d28]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
+          <div className="text-center mb-16">
             <span className="text-[#c9971c] text-xs font-semibold tracking-[0.18em] uppercase">
               Credentials & Partners
             </span>
+
             <h2
-              className="font-display mt-3 text-2xl font-bold text-white"
+              className="mt-4 text-3xl md:text-4xl font-bold text-white"
               style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
             >
               Certified, Accredited & Partnered
             </h2>
+
+            <p className="mt-5 max-w-2xl mx-auto text-white/60 leading-7">
+              Every installation complies with Nigerian industry standards and
+              is backed by nationally recognized certifications and trusted
+              regulatory partners.
+            </p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-14">
-            {CERTS.map((cert) => (
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-start">
+            {CERTIFICATES.map((cert) => (
               <div
-                key={cert}
-                className="flex flex-col items-center gap-2.5 group"
+                key={cert.name}
+                className="group flex flex-col items-center text-center"
               >
-                <div className="w-16 h-16 rounded-full border-2 border-[#c9971c]/30 group-hover:border-[#c9971c] flex items-center justify-center transition-colors duration-300">
-                  <Award className="w-7 h-7 text-[#c9971c]" />
+                <div
+                  className="
+              w-40 h-40
+              rounded-full
+              bg-white
+              shadow-[0_20px_45px_rgba(0,0,0,0.18)]
+              border border-white/20
+              flex items-center justify-center
+              transition-all duration-300
+              group-hover:scale-105
+              group-hover:-translate-y-2
+            "
+                >
+                  <img
+                    src={cert.image}
+                    alt={cert.name}
+                    className="max-w-24 max-h-24 object-contain transition-all duration-300 group-hover:scale-110"
+                  />
                 </div>
-                <span className="text-white/60 text-xs text-center font-medium leading-tight max-w-[80px]">
-                  {cert}
-                </span>
+
+                <h3 className="mt-6 text-xl font-semibold text-white">
+                  {cert.name}
+                </h3>
+
+                <p className="mt-2 text-sm text-white/60 max-w-[180px] leading-6">
+                  {cert.subtitle}
+                </p>
+
+                <div className="mt-5 w-12 h-[3px] rounded-full bg-[#c9971c] transition-all duration-300 group-hover:w-20" />
               </div>
             ))}
           </div>
