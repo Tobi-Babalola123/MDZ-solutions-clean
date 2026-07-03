@@ -15,10 +15,6 @@ import {
   Phone,
   Mail,
   MapPin,
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
   Check,
   ArrowRight,
   Menu,
@@ -33,6 +29,10 @@ import {
   Headphones,
   BatteryCharging,
 } from "lucide-react";
+
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+
+import { FaXTwitter } from "react-icons/fa6";
 
 // ── Hooks ─────────────────────────────────────────────────────
 
@@ -1297,15 +1297,20 @@ export default function App() {
                 Nigeria's leading solar energy company — powering homes,
                 businesses, and communities across the nation since 2012.
               </p>
-              <div className="flex gap-2.5">
-                {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+              <div className="flex gap-3">
+                {[
+                  { icon: FaFacebookF, href: "#" },
+                  { icon: FaXTwitter, href: "#" },
+                  { icon: FaInstagram, href: "#" },
+                  { icon: FaLinkedinIn, href: "#" },
+                ].map(({ icon: Icon, href }, i) => (
                   <a
                     key={i}
-                    href="#"
-                    className="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center hover:bg-[#1b5e37] hover:-translate-y-0.5 transition-all duration-300"
+                    href={href}
                     aria-label="Social media"
+                    className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#c9971c] hover:bg-[#c9971c]"
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="text-base text-white/80 transition-colors duration-300 group-hover:text-[#0d1821]" />
                   </a>
                 ))}
               </div>
